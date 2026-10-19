@@ -6,7 +6,7 @@ const rl = readline.createInterface({ input, output });
 // 🚫 No eliminar las líneas de arriba ⬆️
 // ✍️ Escribe tu código aquí 👇
 
-let systemName: string = "Funval System";
+let systemName: string = "Funval sistemita";
 let version: number = 1.0;
 let userName: string = "Santiago";
 
