@@ -26,12 +26,12 @@ while (continuar) {
         const opcion = await rl.question("Selecciona una opción (1-4): ");
 
 if (opcion === "1") {
-            const nuevaTarea = await rl.question("Escribe el título de la tarea: ");
+            const nuevaTarea = await rl.question("Escribe el titulo de la tarea: ");
             if (nuevaTarea.trim() !== "") {
                 tareas.push(nuevaTarea);
-                console.log(" Su Tarea ha sido agregada!");
+                console.log(" Su Tarea ha sido agregada");
             } else {
-                console.log("El título no puede estar vacío.");
+                console.log("El titulo no puede estar vacío.");
             }
         } 
         else if (opcion === "2") {
@@ -44,7 +44,7 @@ if (opcion === "1") {
         } 
         else if (opcion === "3") {
             if (tareas.length === 0) {
-                console.log("La lista de tareas está vacía.");
+                console.log("La lista de tareas esta vacia.");
             } else {
                 console.log("\nTus tareas:");
                 for (let i = 0; i < tareas.length; i++) {
@@ -53,11 +53,11 @@ if (opcion === "1") {
             }
         } 
         else if (opcion === "4") {
-            console.log("¡Hasta luego!");
+            console.log("Adios que tenga buen dia!");
             continuar = false;
         } 
         else {
-            console.log("Opción inválida. Por favor, elige un número entre 1 y 4.");
+            console.log("Opcion invalida.   Por favor, escoge un número entre 1 y 4.");
         }
     }
 
