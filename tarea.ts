@@ -29,7 +29,7 @@ if (opcion === "1") {
             const nuevaTarea = await rl.question("Escribe el título de la tarea: ");
             if (nuevaTarea.trim() !== "") {
                 tareas.push(nuevaTarea);
-                console.log("¡Tarea agregada con éxito!");
+                console.log(" Su Tarea ha sido agregada!");
             } else {
                 console.log("El título no puede estar vacío.");
             }
