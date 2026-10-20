@@ -17,9 +17,9 @@ async function main() {
 
 
 while (continuar) {
-        console.log("\n=== MENÚ DE TAREAS ===");
+        console.log("\n=== MENU DE TAREAS ===");
         console.log("1. Agregar tarea");
-        console.log("2. Eliminar última tarea");
+        console.log("2. Eliminar ultima tarea");
         console.log("3. Listar tareas");
         console.log("4. Salir");
 
