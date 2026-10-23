@@ -8,12 +8,28 @@ interface Tarea {
   completada: boolean;
 }
 
-// 3. Arreglo principal y contador de IDs únicos
+//  Arreglo principal 
 let tareas: Tarea[] = [];
 let siguienteId: number = 1;
 
-// 4. Arrow functions para cada acción
-const agregarTarea = (titulo: string): void => {
+const saveToDB = (titulo: string): Promise<void> => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log(`[DB] Tarea "${titulo}" guardada en el servidor.`);
+      resolve();
+    }, 2000);
+  });
+};
+
+//  Arrayslis para cada accion
+const agregarTarea = async (titulo: string):Promise<void> => {
+  try {
+    if(!titulo || titulo.trim() === ""){
+      throw new Error ("el titulo de la tarea no puede estar vacio");
+    }
+    console.log("se esta guardando la tarea... LOADING...!!!!");
+    await saveToDB(titulo.trim());
+      
   const nuevaTarea:Tarea = {
     id: siguienteId++,
     titulo: titulo,
@@ -21,8 +37,10 @@ const agregarTarea = (titulo: string): void => {
   };
   tareas.push(nuevaTarea);
   console.log(" Tarea "+ titulo + " agregada correctamente (ID: " + nuevaTarea.id+" ) ");
+} catch (error) {
+  console.error("X error",(error as Error).message);
+}
 };
-
 const listarTareas = (arregloDeTareas: Tarea[] = tareas): void => {
   if (arregloDeTareas.length === 0) {
     console.log("No hay tareas en la lista");
@@ -97,7 +115,7 @@ const principal = async () => {
       case "1": {
         const titulo = await lector.question("Ingresa el titulo de la tarea: ");
         if (titulo.trim()) {
-          agregarTarea(titulo.trim());
+          await agregarTarea(titulo.trim()); //poner la palabra await le da los segundos de espera o los que se programen arriba
         } else {
           console.log("El titulo no puede estar vacio");
         }
